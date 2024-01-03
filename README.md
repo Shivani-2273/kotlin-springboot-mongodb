@@ -84,26 +84,10 @@ sh.enableSharding("<database_name>")
 sh.shardCollection("<database_name>.<collection_name>", { key: 1 })
 
 
-Mongo - docker-compose.yml
+## Mongo - docker-compose.yml
 
-version: '3.8'
+ ![mongo](https://github.com/Shivani-2273/kotlin-springboot-mongodb/assets/100900027/2f6f84ad-a8ef-4626-b47b-d6155f74e30b)
 
-services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb_container
-    ports:
-      - "27018:27017"
-    volumes:
-      - mongodb_data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin123
-    networks:
-      - mongo_network
-
-volumes:
-  mongodb_data:
 
 networks:
   mongo_network:
