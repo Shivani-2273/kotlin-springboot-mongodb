@@ -1,30 +1,30 @@
-## Mongo Docker commands
+# Mongo Docker commands
 
-# List containers
+1. List containers
 sudo docker ps
  
-# to run mongo shell
+2. to run mongo shell
 sudo docker exec -it "container_name" mongosh -u admin -p admin123 --authenticationDatabase admin
  
-# Connect to MongoDB Shell:
+3. Connect to MongoDB Shell:
 mongo
  
-# Show Databases:
+4. Show Databases:
 show dbs
  
-# Switch to a Database:
+5. Switch to a Database:
 use <database_name>
  
-# Show Collections in Current Database:
+6. Show Collections in Current Database:
 show collections
  
-# Insert a Document into a Collection:
+7. Insert a Document into a Collection:
 db.<collection_name>.insert({ key: "value", ... })
  
-# Query Documents in a Collection:
+8. Query Documents in a Collection:
 db.<collection_name>.find()
  
-# Query Documents with Criteria:
+9. Query Documents with Criteria:
 db.<collection_name>.find({ key: "value" })
  
 # Count Documents in a Collection:
