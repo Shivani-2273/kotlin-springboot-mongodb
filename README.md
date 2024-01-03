@@ -83,3 +83,30 @@ sh.enableSharding("<database_name>")
 ### Shard Collection:
 sh.shardCollection("<database_name>.<collection_name>", { key: 1 })
 
+
+Mongo - docker-compose.yml
+
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin123
+    networks:
+      - mongo_network
+
+volumes:
+  mongodb_data:
+
+networks:
+  mongo_network:
+    driver: bridge
+
+
