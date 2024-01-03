@@ -1,84 +1,85 @@
-# Mongo Docker commands
-
-### List containers
- sudo docker ps
+## Mongo Docker commands
  
-3. to run mongo shell
+### List containers
+sudo docker ps
+ 
+### to run mongo shell
 sudo docker exec -it "container_name" mongosh -u admin -p admin123 --authenticationDatabase admin
  
-4. Connect to MongoDB Shell:
+### Connect to MongoDB Shell:
 mongo
  
-5. Show Databases:
+### Show Databases:
 show dbs
  
-6. Switch to a Database:
+### Switch to a Database:
 use <database_name>
  
-7. Show Collections in Current Database:
+### Show Collections in Current Database:
 show collections
  
-8. Insert a Document into a Collection:
+### Insert a Document into a Collection:
 db.<collection_name>.insert({ key: "value", ... })
  
-9. Query Documents in a Collection:
+### Query Documents in a Collection:
 db.<collection_name>.find()
  
-10. Query Documents with Criteria:
+### Query Documents with Criteria:
 db.<collection_name>.find({ key: "value" })
  
-# Count Documents in a Collection:
+### Count Documents in a Collection:
 db.<collection_name>.count()
  
-# Update a Document in a Collection:
+### Update a Document in a Collection:
 db.<collection_name>.update({ key: "value" }, { $set: { key: "new_value" } })
  
-# Delete a Document from a Collection:
+### Delete a Document from a Collection:
 db.<collection_name>.remove({ key: "value" })
  
-# Delete a Single Document
+### Delete a Single Document
 db.<collection_name>.deleteOne({ _id: ObjectId("object_ID") })
  
-# Delete Multiple Documents
+### Delete Multiple Documents
 db.<collection_name>.deleteMany({ status: "inactive" })
  
-# Delete any collection
+### Delete any collection
 db.<collection_name>.drop()
  
 # Aggregation Commands:
-# Group Documents:
+### Group Documents:
 db.<collection_name>.aggregate([{ $group: { _id: "$key", total: { $sum: 1 } } }])
-# Sort Documents:
+### Sort Documents:
 db.<collection_name>.find().sort({ key: 1 })
-# Limit Documents:
+### Limit Documents:
 db.<collection_name>.find().limit(10)
  
 # Index Commands:
-# Create Index:
+### Create Index:
 db.<collection_name>.createIndex({ key: 1 })
-# List Indexes:
+### List Indexes:
 db.<collection_name>.getIndexes()
-# Drop Index:
+### Drop Index:
 db.<collection_name>.dropIndex("index_name")
  
 # Backup & Restore Commands:
-# Backup Database:
+### Backup Database:
 mongodump --db <database_name> --out <directory_path>
-# Restore Database:
+### Restore Database:
 mongorestore --db <database_name> <directory_path>
  
 # Authentication & Authorization Commands:
-# Create User:
+### Create User:
 db.createUser({ user: "username", pwd: "password", roles: ["readWrite", "dbAdmin"] })
-# Authenticate:
+### Authenticate:
 mongo -u <username> -p <password> --authenticationDatabase <database_name>
  
 # Replication & Sharding Commands:
-# Initialize Replica Set:
+### Initialize Replica Set:
 rs.initiate()
-# Add Node to Replica Set:
+### Add Node to Replica Set:
 rs.add("hostname:port")
-# Enable Sharding:
+### Enable Sharding:
 sh.enableSharding("<database_name>")
-# Shard Collection:
+### Shard Collection:
 sh.shardCollection("<database_name>.<collection_name>", { key: 1 })
+
